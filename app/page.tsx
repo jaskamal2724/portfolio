@@ -23,6 +23,31 @@ import { Menu, X } from "lucide-react";
 
 
 export default function Page() {
+
+  const projects = [
+    {
+      title: "Get me a coffee",
+      description: "A personal portfolio built with React, TypeScript, and Tailwind CSS.",
+      technologies: ["React", "TypeScript", "Tailwind"],
+      image: "/portfolio.svg",
+      link: "https://imgs.search.brave.com/OsD3fj5NxCxoYh6ACc-nz6pDG06fQhAqtVX5y-lltTk/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5saWNkbi5jb20v/ZG1zL2ltYWdlL0Q0/RDEyQVFGUUVZdDJT/ZjR2bmcvYXJ0aWNs/ZS1jb3Zlcl9pbWFn/ZS1zaHJpbmtfNzIw/XzEyODAvMC8xNzAx/NzA0ODg5NjMwP2U9/MjE0NzQ4MzY0NyZ2/PWJldGEmdD04OU1X/cF9pb0ZFX2JlS2Qx/akx1M0wwcWFzbldW/cDJEUnIweTlHTGxI/ZHR3.jpeg",
+    },
+    {
+      title: "Image_commerce",
+      description: "A full-stack e-commerce platform with cart and payment integration.",
+      technologies: ["Next.js", "Node.js", "MongoDB"],
+      image: "/ecommerce.svg",
+      link: "https://imgs.search.brave.com/zQhGz50WGpIa82DTIuZR1wQ4VugQW_eBqDd8IDep7wg/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/cHJvZC53ZWJzaXRl/LWZpbGVzLmNvbS82/NDYyNjU1ZTZmMTgx/MWFhYmU4MGQ4YmQv/NjY0Zjc1MmY3ZWQ2/MDY0MzBjZTRmOWEz/X1RvcCUyMDEwJTIw/aW1hZ2UlMjBtYW5h/Z2VycyUyMHRvJTIw/bmV2ZXIlMjBydW4l/MjBvdXQlMjBvZiUy/MHN0b3JhZ2UlMjBz/cGFjZS0yLnBuZw",
+    },
+    {
+      title: "Chatify",
+      description: "A real-time chat application with WebSocket integration.",
+      technologies: ["React", "WebSockets", "Tailwind"],
+      image: "/chat.svg",
+      link: "https://imgs.search.brave.com/JjlI6fcgOV4FsSKwUHWqDxi0SfIp5qMmgtTqO-FsniA/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTE5/MTk2NzMzOS92ZWN0/b3IvaGFuZC1ob2xk/aW5nLXBob25lLXdp/dGgtc2hvcnQtbWVz/c2FnZXMtaWNvbnMt/YW5kLWVtb3RpY29u/cy1jaGF0dGluZy13/aXRoLWZyaWVuZHMt/YW5kLXNlbmRpbmcu/anBnP3M9NjEyeDYx/MiZ3PTAmaz0yMCZj/PUUtb3R1bkNibzVY/M0VwZ0VBYnF6VWt4/bF9uS0loRGlnZU5a/d0JrRTNWSVU9",
+    },
+  ];
+
   const [activeSection, setActiveSection] = useState("home");
   const homeRef = useRef<HTMLElement>(null);
   const aboutRef = useRef<HTMLElement>(null);
@@ -161,7 +186,6 @@ export default function Page() {
         )}
       </div>
       </header>
-
 
       {/* Hero Section */}
       <section
@@ -333,14 +357,14 @@ export default function Page() {
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-12">Featured Projects</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {Array.from({ length: 3 }).map((_, index) => (
+            {projects.map((item, index) => (
               <Card
                 key={index}
                 className="group bg-black/50 border-white/10 overflow-hidden hover:border-purple-500/50 transition-colors"
               >
                 <div className="relative aspect-video">
                   <Image
-                    src="/placeholder.svg"
+                    src={item.link}
                     alt={`Project ${index + 1}`}
                     fill
                     className="object-cover transition-transform group-hover:scale-105"
@@ -349,7 +373,7 @@ export default function Page() {
                 </div>
                 <div className="p-6 space-y-4">
                   <div className="flex items-center justify-between">
-                    <h3 className="text-lg font-semibold">Project Title</h3>
+                    <h3 className="text-lg font-semibold">{item.title}</h3>
                     <Button
                       variant="ghost"
                       size="icon"
@@ -359,13 +383,12 @@ export default function Page() {
                     </Button>
                   </div>
                   <p className="text-sm text-white/70">
-                    A brief description of the project and the technologies used
-                    in its development.
+                    {item.description}
                   </p>
                   <div className="flex flex-wrap gap-2">
-                    {["React", "TypeScript", "Tailwind"].map((tech) => (
+                    {item.technologies.map((tech,index) => (
                       <Badge
-                        key={tech}
+                        key={index}
                         variant="outline"
                         className="border-purple-500/50 text-purple-400"
                       >
@@ -389,22 +412,22 @@ export default function Page() {
               {
                 icon: Code2,
                 title: "Frontend Development",
-                skills: ["React", "Next.js", "TypeScript"],
-              },
-              {
-                icon: Palette,
-                title: "UI/UX Design",
-                skills: ["Figma", "Adobe XD", "Prototyping"],
+                skills: ["React", "Next.js", "TypeScript","Javascript"],
               },
               {
                 icon: Cpu,
                 title: "Backend Development",
-                skills: ["Node.js", "Python", "PostgreSQL"],
+                skills: ["Node.js", "Mongo Db", "Prisma","Express"],
+              },
+              {
+                icon: Palette,
+                title: "UI/UX Design",
+                skills: ["Figma", "Framer Motion", "Canva"],
               },
               {
                 icon: Globe,
                 title: "Other Skills",
-                skills: ["SEO", "Git", "DevOps"],
+                skills: ["AWS", "Git", "Github"],
               },
             ].map((category, index) => (
               <Card
@@ -426,7 +449,6 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Contact Section */}
       {/* Contact Section */}
       <section ref={contactRef} id="contact" className="py-20 bg-black/50">
         <div className="container mx-auto px-4">

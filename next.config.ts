@@ -10,6 +10,11 @@ const nextConfig: NextConfig = {
         port: '', // Leave empty if no specific port is used
         pathname: '/736x/**', // Matches all paths starting with `/736x/`
       },
+      {
+        protocol: 'https',
+        hostname: 'imgs.search.brave.com',
+        pathname: '/**', // Allows all paths under this hostname
+      },
     ],
   },
 };
