@@ -20,21 +20,22 @@ import {
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
-
+import ContactForm from "@/components/ContactForm";
 
 export default function Page() {
-
   const projects = [
     {
       title: "Get me a coffee",
-      description: "A personal portfolio built with React, TypeScript, and Tailwind CSS.",
+      description:
+        "A personal portfolio built with React, TypeScript, and Tailwind CSS.",
       technologies: ["React", "TypeScript", "Tailwind"],
       image: "/portfolio.svg",
       link: "https://imgs.search.brave.com/OsD3fj5NxCxoYh6ACc-nz6pDG06fQhAqtVX5y-lltTk/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5saWNkbi5jb20v/ZG1zL2ltYWdlL0Q0/RDEyQVFGUUVZdDJT/ZjR2bmcvYXJ0aWNs/ZS1jb3Zlcl9pbWFn/ZS1zaHJpbmtfNzIw/XzEyODAvMC8xNzAx/NzA0ODg5NjMwP2U9/MjE0NzQ4MzY0NyZ2/PWJldGEmdD04OU1X/cF9pb0ZFX2JlS2Qx/akx1M0wwcWFzbldW/cDJEUnIweTlHTGxI/ZHR3.jpeg",
     },
     {
       title: "Image_commerce",
-      description: "A full-stack e-commerce platform with cart and payment integration.",
+      description:
+        "A full-stack e-commerce platform with cart and payment integration.",
       technologies: ["Next.js", "Node.js", "MongoDB"],
       image: "/ecommerce.svg",
       link: "https://imgs.search.brave.com/zQhGz50WGpIa82DTIuZR1wQ4VugQW_eBqDd8IDep7wg/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/cHJvZC53ZWJzaXRl/LWZpbGVzLmNvbS82/NDYyNjU1ZTZmMTgx/MWFhYmU4MGQ4YmQv/NjY0Zjc1MmY3ZWQ2/MDY0MzBjZTRmOWEz/X1RvcCUyMDEwJTIw/aW1hZ2UlMjBtYW5h/Z2VycyUyMHRvJTIw/bmV2ZXIlMjBydW4l/MjBvdXQlMjBvZiUy/MHN0b3JhZ2UlMjBz/cGFjZS0yLnBuZw",
@@ -47,6 +48,8 @@ export default function Page() {
       link: "https://imgs.search.brave.com/JjlI6fcgOV4FsSKwUHWqDxi0SfIp5qMmgtTqO-FsniA/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTE5/MTk2NzMzOS92ZWN0/b3IvaGFuZC1ob2xk/aW5nLXBob25lLXdp/dGgtc2hvcnQtbWVz/c2FnZXMtaWNvbnMt/YW5kLWVtb3RpY29u/cy1jaGF0dGluZy13/aXRoLWZyaWVuZHMt/YW5kLXNlbmRpbmcu/anBnP3M9NjEyeDYx/MiZ3PTAmaz0yMCZj/PUUtb3R1bkNibzVY/M0VwZ0VBYnF6VWt4/bF9uS0loRGlnZU5a/d0JrRTNWSVU9",
     },
   ];
+
+  const [isContactFormOpen, setIsContactFormOpen] = useState(false);
 
   const [activeSection, setActiveSection] = useState("home");
   const homeRef = useRef<HTMLElement>(null);
@@ -93,64 +96,28 @@ export default function Page() {
     <div className="min-h-screen bg-black text-white dark selection:bg-purple-500/30">
       {/* Header */}
       <header className="fixed top-0 w-full z-50 bg-black/50 backdrop-blur-lg border-b border-white/10">
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <span className="text-3xl font-bold bg-gradient-to-r from-purple-400 to-pink-600 text-transparent bg-clip-text">
-            Jaskamal
-          </span>
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-between h-16">
+            {/* Logo */}
+            <span className="text-3xl font-bold bg-gradient-to-r from-purple-400 to-pink-600 text-transparent bg-clip-text">
+              Jaskamal
+            </span>
 
-          {/* Hamburger Menu */}
-          <button
-            className="block md:hidden text-white/70 hover:text-purple-400 transition-colors"
-            onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Toggle Menu"
-          >
-            {menuOpen ? (
-              <X className="w-6 h-6" /> // Icon for closing the menu
-            ) : (
-              <Menu className="w-6 h-6" /> // Icon for opening the menu
-            )}
-          </button>
-
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
-            {[
-              { name: "Home", ref: homeRef },
-              { name: "About", ref: aboutRef },
-              { name: "Projects", ref: projectsRef },
-              { name: "Skills", ref: skillsRef },
-              { name: "Contact", ref: contactRef },
-            ].map((item) => (
-              <button
-                key={item.name}
-                onClick={() => scrollToSection(item.ref)}
-                className={`text-lg transition-colors hover:text-purple-400 ${
-                  activeSection === item.name.toLowerCase()
-                    ? "text-purple-400"
-                    : "text-white/70"
-                }`}
-              >
-                {item.name}
-              </button>
-            ))}
-          </nav>
-
-          {/* Resume Button */}
-          <Link href="https://drive.google.com/file/d/1SaaDqPpkLF3b9lV9eff8enM_FmrVfKqZ/view?usp=sharing">
-            <Button
-              variant="outline"
-              className="hidden md:block border-purple-500/50 hover:border-purple-500 text-lg"
+            {/* Hamburger Menu */}
+            <button
+              className="block md:hidden text-white/70 hover:text-purple-400 transition-colors"
+              onClick={() => setMenuOpen(!menuOpen)}
+              aria-label="Toggle Menu"
             >
-            Resume
-            </Button>
-          </Link>
-        </div>
+              {menuOpen ? (
+                <X className="w-6 h-6" /> // Icon for closing the menu
+              ) : (
+                <Menu className="w-6 h-6" /> // Icon for opening the menu
+              )}
+            </button>
 
-        {/* Mobile Navigation */}
-        {menuOpen && (
-          <div className="md:hidden mt-2 bg-black/80 border-t border-white/10 rounded-lg p-4">
-            <nav className="flex flex-col gap-4">
+            {/* Desktop Navigation */}
+            <nav className="hidden md:flex items-center gap-8">
               {[
                 { name: "Home", ref: homeRef },
                 { name: "About", ref: aboutRef },
@@ -160,10 +127,7 @@ export default function Page() {
               ].map((item) => (
                 <button
                   key={item.name}
-                  onClick={() => {
-                    scrollToSection(item.ref);
-                    setMenuOpen(false); // Close the menu after clicking
-                  }}
+                  onClick={() => scrollToSection(item.ref)}
                   className={`text-lg transition-colors hover:text-purple-400 ${
                     activeSection === item.name.toLowerCase()
                       ? "text-purple-400"
@@ -174,17 +138,56 @@ export default function Page() {
                 </button>
               ))}
             </nav>
+
+            {/* Resume Button */}
             <Link href="https://drive.google.com/file/d/1SaaDqPpkLF3b9lV9eff8enM_FmrVfKqZ/view?usp=sharing">
               <Button
                 variant="outline"
-                className="mt-4 w-full border-purple-500/50 hover:border-purple-500 text-lg"
+                className="hidden md:block border-purple-500/50 hover:border-purple-500 text-lg"
               >
                 Resume
               </Button>
             </Link>
           </div>
-        )}
-      </div>
+
+          {/* Mobile Navigation */}
+          {menuOpen && (
+            <div className="md:hidden mt-2 bg-black/80 border-t border-white/10 rounded-lg p-4">
+              <nav className="flex flex-col gap-4">
+                {[
+                  { name: "Home", ref: homeRef },
+                  { name: "About", ref: aboutRef },
+                  { name: "Projects", ref: projectsRef },
+                  { name: "Skills", ref: skillsRef },
+                  { name: "Contact", ref: contactRef },
+                ].map((item) => (
+                  <button
+                    key={item.name}
+                    onClick={() => {
+                      scrollToSection(item.ref);
+                      setMenuOpen(false); // Close the menu after clicking
+                    }}
+                    className={`text-lg transition-colors hover:text-purple-400 ${
+                      activeSection === item.name.toLowerCase()
+                        ? "text-purple-400"
+                        : "text-white/70"
+                    }`}
+                  >
+                    {item.name}
+                  </button>
+                ))}
+              </nav>
+              <Link href="https://drive.google.com/file/d/1SaaDqPpkLF3b9lV9eff8enM_FmrVfKqZ/view?usp=sharing">
+                <Button
+                  variant="outline"
+                  className="mt-4 w-full border-purple-500/50 hover:border-purple-500 text-lg"
+                >
+                  Resume
+                </Button>
+              </Link>
+            </div>
+          )}
+        </div>
       </header>
 
       {/* Hero Section */}
@@ -382,11 +385,9 @@ export default function Page() {
                       <ExternalLink className="w-4 h-4" />
                     </Button>
                   </div>
-                  <p className="text-sm text-white/70">
-                    {item.description}
-                  </p>
+                  <p className="text-sm text-white/70">{item.description}</p>
                   <div className="flex flex-wrap gap-2">
-                    {item.technologies.map((tech,index) => (
+                    {item.technologies.map((tech, index) => (
                       <Badge
                         key={index}
                         variant="outline"
@@ -412,12 +413,12 @@ export default function Page() {
               {
                 icon: Code2,
                 title: "Frontend Development",
-                skills: ["React", "Next.js", "TypeScript","Javascript"],
+                skills: ["React", "Next.js", "TypeScript", "Javascript"],
               },
               {
                 icon: Cpu,
                 title: "Backend Development",
-                skills: ["Node.js", "Mongo Db", "Prisma","Express"],
+                skills: ["Node.js", "Mongo Db", "Prisma", "Express"],
               },
               {
                 icon: Palette,
@@ -460,14 +461,15 @@ export default function Page() {
             </p>
             <Button
               className="bg-purple-600 hover:bg-purple-700"
-              onClick={() =>
-                (window.location.href = "mailto:jaskamalsingh7872@gmail.com")
-              }
+              onClick={() => setIsContactFormOpen(true)}
             >
               Contact Me
             </Button>
           </div>
         </div>
+        {isContactFormOpen && (
+          <ContactForm onClose={() => setIsContactFormOpen(false)} />
+        )}
       </section>
 
       {/* Footer */}
@@ -486,7 +488,7 @@ export default function Page() {
                   url: "https://www.linkedin.com/in/jaskamal-singh-9a9039259/",
                 },
                 { Icon: Mail, url: "jaskamalsingh7872@gmail.com" },
-              ].map(({Icon,url}, index) => (
+              ].map(({ Icon, url }, index) => (
                 // <Button
                 //   key={index}
                 //   variant="ghost"
