@@ -271,7 +271,7 @@ export default function Page() {
               className="space-y-6"
             >
               <p className="text-lg text-white/80 leading-relaxed">
-                I'm a{" "}
+                I&apos;m a{" "}
                 <span className="font-semibold text-purple-400">
                   passionate developer and designer
                 </span>{" "}
@@ -287,7 +287,7 @@ export default function Page() {
                 to every project I work on.
               </p>
               <p className="text-lg text-white/80 leading-relaxed">
-                When I'm not coding or pushing pixels, you'll find me:
+                When I&apos;m not coding or pushing pixels, you&apos;ll find me:
               </p>
               <ul className="list-none space-y-2 pl-6">
                 {[
