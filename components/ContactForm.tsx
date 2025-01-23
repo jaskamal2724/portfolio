@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { NextResponse } from 'next/server';
 
 // Define prop types
 interface ContactFormProps {
@@ -44,7 +45,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onClose }) => {
           if(isSubmitting){
 
           }
-          
+
           if (response.ok) {
             setNotification({
               type: 'success',
@@ -70,6 +71,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onClose }) => {
             type: 'error',
             message: "Error sending message. Please try again later."
           });
+          return NextResponse.json({message:error})
         } 
         finally {
           setIsSubmitting(false);
