@@ -41,7 +41,10 @@ const ContactForm: React.FC<ContactFormProps> = ({ onClose }) => {
           });
     
           const result = await response.json();
-    
+          if(isSubmitting){
+
+          }
+          
           if (response.ok) {
             setNotification({
               type: 'success',
@@ -61,12 +64,14 @@ const ContactForm: React.FC<ContactFormProps> = ({ onClose }) => {
           } else {
             throw new Error(result.message);
           }
-        } catch (error) {
+        } 
+        catch (error) {
           setNotification({
             type: 'error',
             message: "Error sending message. Please try again later."
           });
-        } finally {
+        } 
+        finally {
           setIsSubmitting(false);
         }
       };
