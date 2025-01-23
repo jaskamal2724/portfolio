@@ -97,7 +97,7 @@ export default function Page() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <span className="text-3xl font-bold bg-gradient-to-r from-purple-400 to-pink-600 text-transparent bg-clip-text">
-            Portfolio
+            Jaskamal
           </span>
 
           {/* Hamburger Menu */}
