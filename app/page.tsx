@@ -48,7 +48,7 @@ export default function Page() {
       link: "https://imgs.search.brave.com/JjlI6fcgOV4FsSKwUHWqDxi0SfIp5qMmgtTqO-FsniA/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTE5/MTk2NzMzOS92ZWN0/b3IvaGFuZC1ob2xk/aW5nLXBob25lLXdp/dGgtc2hvcnQtbWVz/c2FnZXMtaWNvbnMt/YW5kLWVtb3RpY29u/cy1jaGF0dGluZy13/aXRoLWZyaWVuZHMt/YW5kLXNlbmRpbmcu/anBnP3M9NjEyeDYx/MiZ3PTAmaz0yMCZj/PUUtb3R1bkNibzVY/M0VwZ0VBYnF6VWt4/bF9uS0loRGlnZU5a/d0JrRTNWSVU9",
     },
   ];
-
+  
   const [isContactFormOpen, setIsContactFormOpen] = useState(false);
 
   const [activeSection, setActiveSection] = useState("home");
@@ -105,7 +105,7 @@ export default function Page() {
 
             {/* Hamburger Menu */}
             <button
-              className="block md:hidden text-white/70 hover:text-purple-400 transition-colors"
+              className="ml-auto block md:hidden text-white/70 hover:text-purple-400 transition-colors "
               onClick={() => setMenuOpen(!menuOpen)}
               aria-label="Toggle Menu"
             >
@@ -246,10 +246,12 @@ export default function Page() {
                 ))}
               </div>
             </div>
+
             <div className="relative lg:h-[600px] flex items-center justify-center">
               <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-pink-500/20 blur-3xl" />
+
               <Card className="relative bg-black/50 border-white/10 p-8 backdrop-blur-xl">
-                <code className="text-sm font-mono space-y-4 block">
+                <code className="text-sm font-mono space-y-4 block animate-pulse">
                   <p className="text-purple-400">const</p>
                   <p className="pl-4">
                     <span className="text-pink-400">developer</span> = {"{"}
@@ -347,7 +349,7 @@ export default function Page() {
                   alt="Profile picture"
                   width={400}
                   height={400}
-                  className="rounded-lg relative z-10 shadow-2xl"
+                  className="rounded-lg relative z-10 shadow-2xl sm:h-30"
                 />
               </motion.div>
             </div>
