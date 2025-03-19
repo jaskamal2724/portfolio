@@ -25,26 +25,26 @@ import ContactForm from "@/components/ContactForm";
 export default function Page() {
   const projects = [
     {
-      title: "Get me a coffee",
+      title: "Vault Sync",
       description:
         "A personal portfolio built with React, TypeScript, and Tailwind CSS.",
-      technologies: ["React", "TypeScript", "Tailwind"],
-      image: "/portfolio.svg",
+      technologies: ["Next Js", "TypeScript", "Firebase", "Appwrite","Shadcn","Aceternity"],
+      image: "/project1.svg",
       link: "https://imgs.search.brave.com/OsD3fj5NxCxoYh6ACc-nz6pDG06fQhAqtVX5y-lltTk/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5saWNkbi5jb20v/ZG1zL2ltYWdlL0Q0/RDEyQVFGUUVZdDJT/ZjR2bmcvYXJ0aWNs/ZS1jb3Zlcl9pbWFn/ZS1zaHJpbmtfNzIw/XzEyODAvMC8xNzAx/NzA0ODg5NjMwP2U9/MjE0NzQ4MzY0NyZ2/PWJldGEmdD04OU1X/cF9pb0ZFX2JlS2Qx/akx1M0wwcWFzbldW/cDJEUnIweTlHTGxI/ZHR3.jpeg",
     },
     {
-      title: "Image_commerce",
+      title: "Task Manager",
       description:
         "A full-stack e-commerce platform with cart and payment integration.",
-      technologies: ["Next.js", "Node.js", "MongoDB"],
-      image: "/ecommerce.svg",
+      technologies: ["React js", "Node.js", "MongoDB","Daisy UI","Javascript"],
+      image: "/project2.png",
       link: "https://imgs.search.brave.com/zQhGz50WGpIa82DTIuZR1wQ4VugQW_eBqDd8IDep7wg/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/cHJvZC53ZWJzaXRl/LWZpbGVzLmNvbS82/NDYyNjU1ZTZmMTgx/MWFhYmU4MGQ4YmQv/NjY0Zjc1MmY3ZWQ2/MDY0MzBjZTRmOWEz/X1RvcCUyMDEwJTIw/aW1hZ2UlMjBtYW5h/Z2VycyUyMHRvJTIw/bmV2ZXIlMjBydW4l/MjBvdXQlMjBvZiUy/MHN0b3JhZ2UlMjBz/cGFjZS0yLnBuZw",
     },
     {
-      title: "Chatify",
+      title: "Medical Firm Management",
       description: "A real-time chat application with WebSocket integration.",
-      technologies: ["React", "WebSockets", "Tailwind"],
-      image: "/chat.svg",
+      technologies: ["Next js", "Firebase", "Typescript","Shadcn","Daisy UI"],
+      image: "/project3.png",
       link: "https://imgs.search.brave.com/JjlI6fcgOV4FsSKwUHWqDxi0SfIp5qMmgtTqO-FsniA/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTE5/MTk2NzMzOS92ZWN0/b3IvaGFuZC1ob2xk/aW5nLXBob25lLXdp/dGgtc2hvcnQtbWVz/c2FnZXMtaWNvbnMt/YW5kLWVtb3RpY29u/cy1jaGF0dGluZy13/aXRoLWZyaWVuZHMt/YW5kLXNlbmRpbmcu/anBnP3M9NjEyeDYx/MiZ3PTAmaz0yMCZj/PUUtb3R1bkNibzVY/M0VwZ0VBYnF6VWt4/bF9uS0loRGlnZU5a/d0JrRTNWSVU9",
     },
   ];
@@ -57,6 +57,7 @@ export default function Page() {
   const projectsRef = useRef<HTMLElement>(null);
   const skillsRef = useRef<HTMLElement>(null);
   const contactRef = useRef<HTMLElement>(null);
+  
 
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -213,10 +214,11 @@ export default function Page() {
                 </p>
               </div>
               <div className="flex flex-wrap gap-4">
-                <Button className="bg-purple-600 hover:bg-purple-700">
+                <Button onClick={()=>scrollToSection(contactRef)} className="bg-purple-600 hover:bg-purple-700">
                   Get in Touch
                 </Button>
                 <Button
+                  onClick={()=>scrollToSection(projectsRef)}
                   variant="outline"
                   className="border-purple-500/50 hover:border-purple-500"
                 >
@@ -349,7 +351,7 @@ export default function Page() {
                   alt="Profile picture"
                   width={400}
                   height={400}
-                  className="rounded-lg relative z-10 shadow-2xl sm:h-30"
+                  className="rounded-3xl relative z-10 shadow-2xl sm:h-30"
                 />
               </motion.div>
             </div>
@@ -367,9 +369,9 @@ export default function Page() {
                 key={index}
                 className="group bg-black/50 border-white/10 overflow-hidden hover:border-purple-500/50 transition-colors"
               >
-                <div className="relative aspect-video">
+                <div className="relative aspect-video bg-white">
                   <Image
-                    src={item.link}
+                    src={item.image}
                     alt={`Project ${index + 1}`}
                     fill
                     className="object-cover transition-transform group-hover:scale-105"
