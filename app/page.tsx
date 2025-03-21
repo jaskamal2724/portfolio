@@ -16,36 +16,46 @@ import {
   Palette,
   Cpu,
   Globe,
+  Github,
 } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
+import { useRouter } from "next/navigation";
 
 export default function Page() {
+
+  const router = useRouter()
   const projects = [
     {
       title: "Vault Sync",
       description:
-        "A personal portfolio built with React, TypeScript, and Tailwind CSS.",
+        "Unlock the power of seamless storage. Your files,your world,one cloud.",
       technologies: ["Next Js", "TypeScript", "Firebase", "Appwrite","Shadcn","Aceternity"],
       image: "/project1.svg",
       link: "https://imgs.search.brave.com/OsD3fj5NxCxoYh6ACc-nz6pDG06fQhAqtVX5y-lltTk/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5saWNkbi5jb20v/ZG1zL2ltYWdlL0Q0/RDEyQVFGUUVZdDJT/ZjR2bmcvYXJ0aWNs/ZS1jb3Zlcl9pbWFn/ZS1zaHJpbmtfNzIw/XzEyODAvMC8xNzAx/NzA0ODg5NjMwP2U9/MjE0NzQ4MzY0NyZ2/PWJldGEmdD04OU1X/cF9pb0ZFX2JlS2Qx/akx1M0wwcWFzbldW/cDJEUnIweTlHTGxI/ZHR3.jpeg",
+      github:"https://github.com/jaskamal2724/vaultsync.git",
+      vercel:"https://vaultsync-flax.vercel.app/"
     },
     {
       title: "Task Manager",
       description:
-        "A full-stack e-commerce platform with cart and payment integration.",
+        "A full-stack app to efficiently organize, track, and manage daily tasks.",
       technologies: ["React js", "Node.js", "MongoDB","Daisy UI","Javascript"],
       image: "/project2.png",
       link: "https://imgs.search.brave.com/zQhGz50WGpIa82DTIuZR1wQ4VugQW_eBqDd8IDep7wg/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/cHJvZC53ZWJzaXRl/LWZpbGVzLmNvbS82/NDYyNjU1ZTZmMTgx/MWFhYmU4MGQ4YmQv/NjY0Zjc1MmY3ZWQ2/MDY0MzBjZTRmOWEz/X1RvcCUyMDEwJTIw/aW1hZ2UlMjBtYW5h/Z2VycyUyMHRvJTIw/bmV2ZXIlMjBydW4l/MjBvdXQlMjBvZiUy/MHN0b3JhZ2UlMjBz/cGFjZS0yLnBuZw",
+      github:"https://github.com/jaskamal2724/task-management.git",
+      vercel:"",
     },
     {
       title: "Medical Firm Management",
-      description: "A real-time chat application with WebSocket integration.",
+      description: "A streamlined platform for managing medical firms, appointments, and records. ",
       technologies: ["Next js", "Firebase", "Typescript","Shadcn","Daisy UI"],
       image: "/project3.png",
       link: "https://imgs.search.brave.com/JjlI6fcgOV4FsSKwUHWqDxi0SfIp5qMmgtTqO-FsniA/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTE5/MTk2NzMzOS92ZWN0/b3IvaGFuZC1ob2xk/aW5nLXBob25lLXdp/dGgtc2hvcnQtbWVz/c2FnZXMtaWNvbnMt/YW5kLWVtb3RpY29u/cy1jaGF0dGluZy13/aXRoLWZyaWVuZHMt/YW5kLXNlbmRpbmcu/anBnP3M9NjEyeDYx/MiZ3PTAmaz0yMCZj/PUUtb3R1bkNibzVY/M0VwZ0VBYnF6VWt4/bF9uS0loRGlnZU5a/d0JrRTNWSVU9",
+      github:"https://github.com/jaskamal2724/medical-firm-management.git",
+      vercel:"https://medical-firm-management.vercel.app/"
     },
   ];
   
@@ -141,7 +151,7 @@ export default function Page() {
             </nav>
 
             {/* Resume Button */}
-            <Link href="https://drive.google.com/file/d/1SaaDqPpkLF3b9lV9eff8enM_FmrVfKqZ/view?usp=sharing">
+            <Link href="https://drive.google.com/file/d/1sPPrSj3rSYI49MCIo1WnJ_C545QuzGNt/view?usp=sharing">
               <Button
                 variant="outline"
                 className="hidden md:block border-purple-500/50 hover:border-purple-500 text-lg"
@@ -381,6 +391,7 @@ export default function Page() {
                 <div className="p-6 space-y-4">
                   <div className="flex items-center justify-between">
                     <h3 className="text-lg font-semibold">{item.title}</h3>
+                    <div>
                     <Button
                       variant="ghost"
                       size="icon"
@@ -388,6 +399,15 @@ export default function Page() {
                     >
                       <ExternalLink className="w-4 h-4" />
                     </Button>
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="hover:text-purple-400"
+                      onClick={()=>router.push(item.github)}
+                    >
+                      <Github />
+                    </Button>
+                    </div>
                   </div>
                   <p className="text-sm text-white/70">{item.description}</p>
                   <div className="flex flex-wrap gap-2">
