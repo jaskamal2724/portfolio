@@ -444,7 +444,7 @@ export default function Page() {
                     alt="Profile picture"
                     width={400}
                     height={400}
-                    className="rounded-3xl relative z-10 shadow-2xl sm:h-30"
+                    className="h-96 w-72 sm:h-[600px] sm:w-[400px] rounded-full sm:rounded-3xl mx-auto relative z-10 shadow-2xl sm:h-30"
                   />
                 </motion.div>
               </div>
