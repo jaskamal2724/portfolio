@@ -24,6 +24,7 @@ import { Menu, X } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
 import { useRouter } from "next/navigation";
 import { toast, ToastContainer } from "react-toastify";
+import TechStackSection from "@/components/TechStack";
 
 export default function Page() {
   const router = useRouter();
@@ -43,25 +44,23 @@ export default function Page() {
         "Aceternity",
       ],
       image: "/project1.svg",
-      link: "https://imgs.search.brave.com/OsD3fj5NxCxoYh6ACc-nz6pDG06fQhAqtVX5y-lltTk/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5saWNkbi5jb20v/ZG1zL2ltYWdlL0Q0/RDEyQVFGUUVZdDJT/ZjR2bmcvYXJ0aWNs/ZS1jb3Zlcl9pbWFn/ZS1zaHJpbmtfNzIw/XzEyODAvMC8xNzAx/NzA0ODg5NjMwP2U9/MjE0NzQ4MzY0NyZ2/PWJldGEmdD04OU1X/cF9pb0ZFX2JlS2Qx/akx1M0wwcWFzbldW/cDJEUnIweTlHTGxI/ZHR3.jpeg",
       github: "https://github.com/jaskamal2724/vaultsync.git",
       vercel: "https://vaultsync-flax.vercel.app/",
     },
     {
-      title: "Task Manager",
+      title: "Expert AI Chat Bot",
       description:
-        "A full-stack app to efficiently organize, track, and manage daily tasks.",
+        "Chat with experts to get personalised experience, with just a click",
       technologies: [
-        "React js",
-        "Node.js",
-        "MongoDB",
-        "Daisy UI",
-        "Javascript",
+        "Next Js",
+        "TypeScript",
+        "Open AI",
+        "Shadcn",
+        "Aceternity",
       ],
       image: "/project2.png",
-      link: "https://imgs.search.brave.com/zQhGz50WGpIa82DTIuZR1wQ4VugQW_eBqDd8IDep7wg/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/cHJvZC53ZWJzaXRl/LWZpbGVzLmNvbS82/NDYyNjU1ZTZmMTgx/MWFhYmU4MGQ4YmQv/NjY0Zjc1MmY3ZWQ2/MDY0MzBjZTRmOWEz/X1RvcCUyMDEwJTIw/aW1hZ2UlMjBtYW5h/Z2VycyUyMHRvJTIw/bmV2ZXIlMjBydW4l/MjBvdXQlMjBvZiUy/MHN0b3JhZ2UlMjBz/cGFjZS0yLnBuZw",
-      github: "https://github.com/jaskamal2724/task-management.git",
-      vercel: "",
+      github: "https://github.com/jaskamal2724/ai-chat-bot.git",
+      vercel: "https://ai-chat-bot-sandy-psi.vercel.app/",
     },
     {
       title: "Medical Firm Management",
@@ -69,7 +68,6 @@ export default function Page() {
         "A streamlined platform for managing medical firms, appointments, and records. ",
       technologies: ["Next js", "Firebase", "Typescript", "Shadcn", "Daisy UI"],
       image: "/project3.png",
-      link: "https://imgs.search.brave.com/JjlI6fcgOV4FsSKwUHWqDxi0SfIp5qMmgtTqO-FsniA/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTE5/MTk2NzMzOS92ZWN0/b3IvaGFuZC1ob2xk/aW5nLXBob25lLXdp/dGgtc2hvcnQtbWVz/c2FnZXMtaWNvbnMt/YW5kLWVtb3RpY29u/cy1jaGF0dGluZy13/aXRoLWZyaWVuZHMt/YW5kLXNlbmRpbmcu/anBnP3M9NjEyeDYx/MiZ3PTAmaz0yMCZj/PUUtb3R1bkNibzVY/M0VwZ0VBYnF6VWt4/bF9uS0loRGlnZU5a/d0JrRTNWSVU9",
       github: "https://github.com/jaskamal2724/medical-firm-management.git",
       vercel: "https://medical-firm-management.vercel.app/",
     },
@@ -361,7 +359,7 @@ export default function Page() {
                       <span className="text-yellow-400">&apos;UI/UX&apos;</span>
                       ,{" "}
                       <span className="text-yellow-400">
-                        &apos;Mobile&apos;
+                        &apos;Gen AI&apos;
                       </span>
                       ],
                     </p>
@@ -453,7 +451,9 @@ export default function Page() {
             </div>
           </div>
         </section>
-
+        
+        {/*  tech section */}
+        <TechStackSection/>
         {/* Projects Section */}
         <section ref={projectsRef} id="projects" className="py-20">
           <div className="container mx-auto px-4">
