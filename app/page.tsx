@@ -25,53 +25,11 @@ import ContactForm from "@/components/ContactForm";
 import { useRouter } from "next/navigation";
 import { toast, ToastContainer } from "react-toastify";
 import TechStackSection from "@/components/TechStack";
+import { projects } from "@/lib/data";
 
 export default function Page() {
   const router = useRouter();
   const [showWelcome, setShowWelcome] = useState(true);
-
-  const projects = [
-    {
-      title: "Vault Sync",
-      description:
-        "Unlock the power of seamless storage. Your files,your world,one cloud.",
-      technologies: [
-        "Next Js",
-        "TypeScript",
-        "Firebase",
-        "Appwrite",
-        "Shadcn",
-        "Aceternity",
-      ],
-      image: "/project1.svg",
-      github: "https://github.com/jaskamal2724/vaultsync.git",
-      vercel: "https://vaultsync-flax.vercel.app/",
-    },
-    {
-      title: "Expert AI Chat Bot",
-      description:
-        "Chat with experts to get personalised experience, with just a click",
-      technologies: [
-        "Next Js",
-        "TypeScript",
-        "Open AI",
-        "Shadcn",
-        "Aceternity",
-      ],
-      image: "/project2.png",
-      github: "https://github.com/jaskamal2724/ai-chat-bot.git",
-      vercel: "https://ai-chat-bot-sandy-psi.vercel.app/",
-    },
-    {
-      title: "Medical Firm Management",
-      description:
-        "A streamlined platform for managing medical firms, appointments, and records. ",
-      technologies: ["Next js", "Firebase", "Typescript", "Shadcn", "Daisy UI"],
-      image: "/project3.png",
-      github: "https://github.com/jaskamal2724/medical-firm-management.git",
-      vercel: "https://medical-firm-management.vercel.app/",
-    },
-  ];
 
   const [isContactFormOpen, setIsContactFormOpen] = useState(false);
 
@@ -96,7 +54,7 @@ export default function Page() {
           }
         });
       },
-      { threshold: 0.5 }
+      { threshold: 0.5 },
     );
 
     const sections = [homeRef, aboutRef, projectsRef, skillsRef, contactRef];
@@ -221,16 +179,6 @@ export default function Page() {
                   </button>
                 ))}
               </nav>
-
-              {/* Resume Button */}
-              <Link href="https://drive.google.com/file/d/1sPPrSj3rSYI49MCIo1WnJ_C545QuzGNt/view?usp=sharing">
-                <Button
-                  variant="outline"
-                  className="hidden md:block border-purple-500/50 hover:border-purple-500 text-lg"
-                >
-                  Resume
-                </Button>
-              </Link>
             </div>
 
             {/* Mobile Navigation */}
@@ -451,9 +399,9 @@ export default function Page() {
             </div>
           </div>
         </section>
-        
+
         {/*  tech section */}
-        <TechStackSection/>
+        <TechStackSection />
         {/* Projects Section */}
         <section ref={projectsRef} id="projects" className="py-20">
           <div className="container mx-auto px-4">
@@ -491,14 +439,7 @@ export default function Page() {
                         >
                           <ExternalLink className="w-4 h-4" />
                         </Button>
-                        <Button
-                          variant="ghost"
-                          size="icon"
-                          className="hover:text-purple-400"
-                          onClick={() => router.push(item.github)}
-                        >
-                          <Github />
-                        </Button>
+                        
                       </div>
                     </div>
                     <p className="text-sm text-white/70">{item.description}</p>
