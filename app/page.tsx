@@ -16,7 +16,6 @@ import {
   Palette,
   Cpu,
   Globe,
-  Github,
 } from "lucide-react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
