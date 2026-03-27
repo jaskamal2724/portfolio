@@ -11,6 +11,10 @@
   "dependencies": {
     "@radix-ui/react-slot": "^1.1.1",
     "@tailwindcss/postcss": "^4.0.15",
+    "@tsparticles/engine": "^3.9.1",
+    "@tsparticles/react": "^3.0.0",
+    "@tsparticles/slim": "^3.9.1",
+    "canvas-confetti": "^1.9.4",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "framer-motion": "^12.0.1",
@@ -18,11 +22,13 @@
     "motion": "^12.0.3",
     "next": "15.1.11",
     "react": "^19.0.0",
+    "react-canvas-confetti": "^2.0.7",
     "react-dom": "^19.0.0",
     "react-toastify": "^11.0.5",
     "resend": "^4.1.1",
     "tailwind-merge": "^2.6.0",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "tsparticles": "^3.9.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
