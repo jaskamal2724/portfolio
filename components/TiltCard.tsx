@@ -13,8 +13,8 @@ export default function TiltCard({ children, className = "" }: TiltCardProps) {
   const y = useMotionValue(0);
   const rotateX = useSpring(useTransform(y, [-0.5, 0.5], [12, -12]), { stiffness: 300, damping: 30 });
   const rotateY = useSpring(useTransform(x, [-0.5, 0.5], [-12, 12]), { stiffness: 300, damping: 30 });
-  const glowX = useTransform(x, [-0.5, 0.5], [0, 100]);
-  const glowY = useTransform(y, [-0.5, 0.5], [0, 100]);
+  // const glowX = useTransform(x, [-0.5, 0.5], [0, 100]);
+  // const glowY = useTransform(y, [-0.5, 0.5], [0, 100]);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!ref.current) return;

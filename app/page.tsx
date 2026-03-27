@@ -27,7 +27,7 @@ import TechStackSection from "@/components/TechStack";
 import { projects } from "@/lib/data";
 import CustomCursor from "@/components/CustomCursor";
 import ParticlesBg from "@/components/ParticlesBg";
-import StatCounters from "@/components/StatCounters";
+// import StatCounters from "@/components/StatCounters";
 import TiltCard from "@/components/TiltCard";
 import { TypewriterWords, ScrambleText } from "@/components/TypewriterEffect";
 import AvailabilityPulse from "@/components/AvailabilityPulse";
