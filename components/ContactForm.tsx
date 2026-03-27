@@ -42,9 +42,6 @@ const ContactForm: React.FC<ContactFormProps> = ({ onClose }) => {
           });
     
           const result = await response.json();
-          if(isSubmitting){
-
-          }
 
           if (response.ok) {
             setNotification({
@@ -78,34 +75,34 @@ const ContactForm: React.FC<ContactFormProps> = ({ onClose }) => {
         }
       };
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
-      <Card className="w-full max-w-md bg-black/80 border-white/10 p-8 relative">
+    <div className="fixed inset-0 z-[110] flex items-center justify-center bg-[#1b1b1f]/80 backdrop-blur-md p-4">
+      <Card className="w-full max-w-md bg-[#242424] border border-[#3c3f44] shadow-2xl p-8 relative rounded-3xl">
         <button 
           onClick={onClose} 
-          className="absolute top-4 right-4 text-white/70 hover:text-purple-400"
+          className="absolute top-5 right-5 text-zinc-500 hover:text-white transition-colors"
         >
           ✕
         </button>
-        <h2 className="text-2xl font-bold mb-6 text-center text-purple-400">
+        <h2 className="text-2xl font-extrabold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-[#bd34fe] to-[#41d1ff]">
           Contact Me
         </h2>
         
         {notification.type && (
           <div className={`
-            mb-4 p-3 rounded-lg text-center
+            mb-4 p-3 rounded-lg text-center font-medium
             ${notification.type === 'success' 
-              ? 'bg-purple-600/20 text-purple-400' 
-              : 'bg-red-600/20 text-red-400'}
+              ? 'bg-green-900/30 text-green-400 border border-green-500/30' 
+              : 'bg-red-900/30 text-red-400 border border-red-500/30'}
           `}>
             {notification.message}
           </div>
         )}
 
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-5">
           <div>
             <label 
               htmlFor="name" 
-              className="block text-white/70 mb-2"
+              className="block text-zinc-300 font-bold mb-2 text-sm uppercase tracking-wider"
             >
               Name
             </label>
@@ -116,14 +113,14 @@ const ContactForm: React.FC<ContactFormProps> = ({ onClose }) => {
               value={formData.name}
               onChange={handleChange}
               required
-              className="w-full bg-black/50 border border-white/10 rounded-lg px-3 py-2 text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full bg-[#1b1b1f] border border-[#3c3f44] rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#bd34fe] focus:ring-1 focus:ring-[#bd34fe] transition-all placeholder:text-zinc-600"
               placeholder="Your Name"
             />
           </div>
           <div>
             <label 
               htmlFor="email" 
-              className="block text-white/70 mb-2"
+              className="block text-zinc-300 font-bold mb-2 text-sm uppercase tracking-wider"
             >
               Email
             </label>
@@ -134,14 +131,14 @@ const ContactForm: React.FC<ContactFormProps> = ({ onClose }) => {
               value={formData.email}
               onChange={handleChange}
               required
-              className="w-full bg-black/50 border border-white/10 rounded-lg px-3 py-2 text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full bg-[#1b1b1f] border border-[#3c3f44] rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#bd34fe] focus:ring-1 focus:ring-[#bd34fe] transition-all placeholder:text-zinc-600"
               placeholder="your.email@example.com"
             />
           </div>
           <div>
             <label 
               htmlFor="message" 
-              className="block text-white/70 mb-2"
+              className="block text-zinc-300 font-bold mb-2 text-sm uppercase tracking-wider"
             >
               Message
             </label>
@@ -152,15 +149,16 @@ const ContactForm: React.FC<ContactFormProps> = ({ onClose }) => {
               onChange={handleChange}
               required
               rows={4}
-              className="w-full bg-black/50 border border-white/10 rounded-lg px-3 py-2 text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full bg-[#1b1b1f] border border-[#3c3f44] rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#bd34fe] focus:ring-1 focus:ring-[#bd34fe] transition-all placeholder:text-zinc-600 resize-none"
               placeholder="Your message..."
             ></textarea>
           </div>
           <Button 
             type="submit"
-            className="w-full bg-purple-600 hover:bg-purple-700 text-white"
+            disabled={isSubmitting}
+            className="w-full bg-gradient-to-r from-[#bd34fe] to-[#8d28e0] hover:from-[#a62ce6] hover:to-[#7820bf] text-white rounded-full py-6 text-lg font-bold transition-all transform active:scale-95 shadow-[0_0_20px_rgba(189,52,254,0.3)] border-none"
           >
-            Send Message
+            {isSubmitting ? 'Sending...' : 'Send Message'}
           </Button>
         </form>
       </Card>
